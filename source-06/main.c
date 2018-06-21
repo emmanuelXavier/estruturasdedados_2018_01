@@ -18,16 +18,13 @@ void primeiro(int informacao){
 void demais(int informacao){
 	TFila * novo;
 	TFila * ultimo = fila;
-	
 	novo = (TFila *) malloc(sizeof(TFila));
 	novo->info = informacao;
 	novo->next = NULL;
-	
 	//levar ate o final
 	while (ultimo->next != NULL){
 		ultimo = ultimo->next;
 	}
-	
 	ultimo->next = novo;
 }
 
@@ -46,6 +43,22 @@ void listar(){
 	}
 }
 
+TFila * buscar(int key){
+	TFila * indice;
+	printf("\n\nListando\n\n");
+	for (indice = fila; indice != NULL; indice = indice->next){
+		if (key == indice->info)
+			return indice;
+	}
+	return NULL;
+}
+
+void desenfileirar(){
+	TFila * destruidor = fila;
+	fila = fila->next;
+	free(destruidor);
+}
+
 int main(int argc, char **argv)
 {
 	int leitura;
@@ -59,9 +72,17 @@ int main(int argc, char **argv)
 	}
 	
 	listar();
-	
-
-	
+	printf("Informe a chave: ");
+	int chave;
+	scanf("%d",&chave);
+	TFila * pos = buscar(chave);
+	if (pos == NULL)
+		printf("Chave inexistente");
+	else
+		printf("Chave encontrada na posicao: %p", pos);
+	desenfileirar();
+	desenfileirar();
+	listar();
 	return 0;
 }
 

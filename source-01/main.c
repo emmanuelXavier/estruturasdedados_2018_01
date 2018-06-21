@@ -17,7 +17,7 @@ void empilhar(int informacao){
 
 void desempilhar(){
 	int i;
-	for (i = TAM - 1; i >= 0;i --){
+	for (i = TAM - 1; i >= 0;i--){
 		if (pilha[i] != 0){
 			pilha[i] = 0;
 			break;
