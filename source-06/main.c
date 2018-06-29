@@ -62,16 +62,17 @@ void desenfileirar(){
 int main(int argc, char **argv)
 {
 	int leitura;
-	while(1){
-		printf("Informe o valor: ");
-		scanf("%d",&leitura);
-		if (leitura == 0)
-			break;
+	int i = 0;
+	while(i++ < 100000){
+		//printf("Informe o valor: ");
+		//scanf("%d",&leitura);
+		//if (leitura == 0)
+		//	break;
 			
-		enfileirar(leitura);
+		enfileirar(i);
 	}
 	
-	listar();
+	/*listar();
 	printf("Informe a chave: ");
 	int chave;
 	scanf("%d",&chave);
@@ -82,7 +83,7 @@ int main(int argc, char **argv)
 		printf("Chave encontrada na posicao: %p", pos);
 	desenfileirar();
 	desenfileirar();
-	listar();
+	listar();*/
 	return 0;
 }
 
